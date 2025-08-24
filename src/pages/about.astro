@@ -33,6 +33,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <h3>Citadel Securities</h3>
               <p class="role">Quantitative Developer</p>
               <p class="duration">Sep 2025 - Present</p>
+              <p class="description">Working on Low Latency ETF Pricing Engine and OMS.</p>
             </div>
           </div>
         </div>
@@ -46,6 +47,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <h3>Bloomberg</h3>
               <p class="role">Software Engineer</p>
               <p class="duration">May 2023 - Aug 2025</p>
+              <p class="description">Worked on Streaming market Data Pipeline, Order Entry Creation for derivatives.</p>
             </div>
           </div>
         </div>
@@ -59,6 +61,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <h3>Metabit Trading</h3>
               <p class="role">Software Engineer Intern</p>
               <p class="duration">Mar 2022 - Jul 2022</p>
+              <p class="description">Worked on Log Processing System, Unified Auth System, Service Mesh Benchmark.</p>
             </div>
           </div>
         </div>
@@ -72,6 +75,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <h3>Alibaba</h3>
               <p class="role">Software Engineer Intern</p>
               <p class="duration">Jul 2021 - Oct 2021</p>
+              <p class="description">Worked on Distributed File System.</p>
             </div>
           </div>
         </div>
@@ -279,11 +283,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   
   
   .experience-item {
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
   
   .education-item {
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
   
   .company-info, .university-info {
@@ -349,5 +353,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   
   .role, .degree {
     font-weight: 500;
+  }
+  
+  .description {
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+    color: var(--foreground);
+    font-style: italic;
+    opacity: 0.9;
   }
 </style>
