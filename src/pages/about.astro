@@ -2,17 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About" description="Background and experience in software engineering and quantitative finance">
+<BaseLayout title="About Gen Yang" description="Background and experience in software engineering and quantitative finance" image="/gen-yang-profile.jpg">
   <div class="page">
     <h1>$ cat ~/about.md</h1>
     
-    <div class="terminal-section">
-      <h2>## About Gen Yang</h2>
-      <p>
-        I'm Gen Yang, a software engineer with a deep fascination for high-performance computing and quantitative finance. 
-        My journey began with traditional software development, but I've progressively moved toward the intersection 
-        of technology and finance, where microseconds matter and precision is paramount.
-      </p>
+    <div class="profile-header">
+      <div class="profile-image">
+        <img src="/gen-yang-profile.jpg" alt="Gen Yang Profile Picture" />
+      </div>
+      <div class="profile-intro">
+        <h2>## About Gen Yang</h2>
+        <p>
+          I'm Gen Yang, a software engineer with a deep fascination for high-performance computing and quantitative finance. 
+          My journey began with traditional software development, but I've progressively moved toward the intersection 
+          of technology and finance, where microseconds matter and precision is paramount.
+        </p>
+      </div>
     </div>
 
     <div class="terminal-section">
@@ -86,6 +91,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .page {
     max-width: 760px;
     margin: 0 auto;
+  }
+  
+  .profile-header {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+    padding: 2rem;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    background: rgba(var(--accent-rgb), 0.03);
+  }
+  
+  @media (min-width: 768px) {
+    .profile-header {
+      grid-template-columns: auto 1fr;
+      align-items: center;
+    }
+  }
+  
+  .profile-image {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.3);
+  }
+  
+  .profile-intro {
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .profile-intro {
+      text-align: left;
+    }
+  }
+  
+  .profile-intro h2 {
+    color: var(--accent);
+    margin-top: 0;
   }
   
   .terminal-section {

@@ -2,10 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Personal Portfolio" description="Software Engineer & Quantitative Trading Enthusiast">
+<BaseLayout title="Gen Yang - Personal Portfolio" description="Software Engineer & Quantitative Trading Enthusiast" image="/gen-yang-profile.jpg">
   <div class="index-content framed">
-    <h1 id="hello-there">$ whoami</h1>
-    <p>Welcome to my digital workspace. I'm Gen Yang, a software engineer with a passion for building high-performance systems and exploring quantitative finance.</p>
+    <div class="intro-header">
+      <div class="intro-text">
+        <h1 id="hello-there">$ whoami</h1>
+        <p>Welcome to my digital workspace. I'm Gen Yang, a software engineer with a passion for building high-performance systems and exploring quantitative finance.</p>
+      </div>
+      <div class="intro-avatar">
+        <img src="/gen-yang-profile.jpg" alt="Gen Yang" />
+      </div>
+    </div>
     
     <div class="terminal-block">
       <h2>$ ls -la ~/skills</h2>
@@ -94,6 +101,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--foreground);
     font-size: 0.9rem;
     margin: 0;
+  }
+  
+  .intro-header {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .intro-header {
+      grid-template-columns: 1fr auto;
+    }
+  }
+  
+  .intro-avatar {
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (min-width: 768px) {
+    .intro-avatar {
+      justify-content: flex-end;
+    }
+  }
+  
+  .intro-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .intro-avatar img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.4);
   }
 </style>
 
