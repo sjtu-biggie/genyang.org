@@ -20,6 +20,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="terminal-block">
       <h2>$ cat ~/current_projects.txt</h2>
       <p>Currently working on building a comprehensive trading system with real-time monitoring capabilities. This portfolio site serves as both a professional showcase and a control center for my quantitative trading experiments.</p>
+      
+      <div class="terminal-interactive">
+        <h3>$ uptime</h3>
+        <p id="uptime-display">Loading system uptime...</p>
+      </div>
     </div>
 
     <div class="navigation-links">
@@ -70,4 +75,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .navigation-links {
     margin-top: 2rem;
   }
+  
+  .terminal-interactive {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(var(--accent-rgb), 0.1);
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+  }
+  
+  .terminal-interactive h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+  
+  #uptime-display {
+    color: var(--foreground);
+    font-size: 0.9rem;
+    margin: 0;
+  }
 </style>
+
+<script>
+  // Dynamic uptime display
+  function updateUptime() {
+    const startDate = new Date('2025-01-01'); // Website launch date
+    const now = new Date();
+    const diffMs = now - startDate;
+    
+    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+    
+    const uptimeElement = document.getElementById('uptime-display');
+    if (uptimeElement) {
+      uptimeElement.textContent = `genyang.org has been running for ${days} days, ${hours} hours, ${minutes} minutes`;
+    }
+  }
+  
+  // Update uptime when page loads
+  document.addEventListener('DOMContentLoaded', updateUptime);
+  
+  // Update uptime every minute
+  setInterval(updateUptime, 60000);
+</script>

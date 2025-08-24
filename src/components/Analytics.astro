@@ -1,0 +1,53 @@
+---
+// Simple privacy-focused analytics component
+// This is a placeholder - you can replace with your preferred analytics solution
+---
+
+<script>
+  // Simple page view tracking (privacy-focused)
+  function trackPageView() {
+    // This is a placeholder for analytics
+    // You could integrate with:
+    // - Google Analytics 4
+    // - Plausible Analytics (privacy-focused)
+    // - Umami (open-source)
+    
+    console.log(`📊 Page view tracked: ${window.location.pathname}`);
+  }
+
+  // Track performance metrics
+  function trackPerformance() {
+    if ('performance' in window) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+          
+          console.log(`⚡ Page load time: ${loadTime}ms`);
+          
+          // Track Core Web Vitals if available
+          if ('PerformanceObserver' in window) {
+            try {
+              const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                  if (entry.name === 'first-contentful-paint') {
+                    console.log(`🎨 First Contentful Paint: ${entry.startTime}ms`);
+                  }
+                }
+              });
+              observer.observe({ entryTypes: ['paint'] });
+            } catch (e) {
+              // Observer not supported
+            }
+          }
+        }, 0);
+      });
+    }
+  }
+
+  // Initialize tracking
+  document.addEventListener('DOMContentLoaded', () => {
+    trackPageView();
+    trackPerformance();
+  });
+</script>

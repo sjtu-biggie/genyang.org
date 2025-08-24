@@ -8,7 +8,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h1>$ ./trading_system --mode=dashboard</h1>
       <div class="system-status">
         <span class="status-indicator" id="system-status">●</span>
-        <span>System Status: <span id="status-text">Initializing...</span></span>
+        <span>System Status: <span id="status-text"></span></span>
       </div>
     </div>
 
@@ -500,3 +500,57 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     font-family: 'Fira Code', monospace;
   }
 </style>
+
+<script>
+  // Animated typing effect for system status
+  function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      }
+    }
+    type();
+  }
+  
+  // System status messages
+  const statusMessages = [
+    'Initializing trading engine...',
+    'Connecting to market data feeds...',
+    'Loading risk parameters...',
+    'System ready for trading',
+    'Monitoring 127 instruments',
+    'Latency: 0.34ms avg'
+  ];
+  
+  let currentMessage = 0;
+  
+  function updateSystemStatus() {
+    const statusElement = document.getElementById('status-text');
+    const indicatorElement = document.getElementById('system-status');
+    
+    if (statusElement && indicatorElement) {
+      typeWriter(statusElement, statusMessages[currentMessage]);
+      
+      // Update indicator color based on status
+      if (currentMessage < 3) {
+        indicatorElement.style.color = '#f59e0b'; // Orange - initializing
+      } else {
+        indicatorElement.style.color = '#22c55e'; // Green - ready
+      }
+      
+      currentMessage = (currentMessage + 1) % statusMessages.length;
+    }
+  }
+  
+  // Start status updates when page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    updateSystemStatus();
+    // Cycle through messages every 3 seconds
+    setInterval(updateSystemStatus, 3000);
+  });
+</script>

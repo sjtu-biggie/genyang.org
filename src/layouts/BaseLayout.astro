@@ -1,11 +1,13 @@
 ---
+import Analytics from '../components/Analytics.astro';
+
 export interface Props {
   title: string;
   description?: string;
   image?: string;
 }
 
-const { title, description = 'A terminal-inspired Astro theme', image } = Astro.props;
+const { title, description = 'Gen Yang - Software Engineer & Quantitative Trading Enthusiast. Building high-performance trading systems with modern web technologies.', image } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
@@ -33,6 +35,37 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {image && <meta name="twitter:image" content={new URL(image, Astro.url)} />}
+    
+    <!-- Additional SEO and Tech Meta Tags -->
+    <meta name="author" content="Gen Yang" />
+    <meta name="keywords" content="Gen Yang, Software Engineer, Quantitative Trading, High-Frequency Trading, HFT, Algorithmic Trading, C++, Python, Astro, Web Development, Trading Systems, Portfolio, Billiards, Tennis, Snowboarding" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#eec35e" />
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gen Yang",
+      "jobTitle": "Software Engineer",
+      "description": "Software Engineer & Quantitative Trading Enthusiast",
+      "url": "https://genyang.org",
+      "sameAs": [
+        "https://github.com/genyang",
+        "https://linkedin.com/in/gen-yang"
+      ],
+      "knowsAbout": [
+        "High-Frequency Trading",
+        "Algorithmic Trading", 
+        "Software Engineering",
+        "Quantitative Finance",
+        "C++",
+        "Python",
+        "Web Development"
+      ]
+    }
+    </script>
     
     <link rel="sitemap" href={`${base}sitemap-index.xml`} />
     <link rel="alternate" type="application/rss+xml" title="RSS" href={`${base}rss.xml`} />
@@ -85,6 +118,8 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         </div>
       </footer>
     </div>
+    
+    <Analytics />
     
     <script>
       // Menu functionality
