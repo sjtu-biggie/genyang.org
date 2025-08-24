@@ -72,7 +72,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="company-details">
               <h3>Citadel Securities</h3>
               <p class="role">Quantitative Researcher</p>
-              <p class="duration">2025 - Present</p>
+              <p class="duration">Jan 2025 - Present</p>
             </div>
           </div>
         </div>
@@ -85,20 +85,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="company-details">
               <h3>Bloomberg</h3>
               <p class="role">Software Engineer</p>
-              <p class="duration">2023 - 2024</p>
+              <p class="duration">Mar 2023 - Jan 2025</p>
             </div>
           </div>
         </div>
 
         <div class="experience-item">
           <div class="company-info">
-            <div class="company-logo qianxiang">
-              <span>乾</span>
+            <div class="company-logo alibaba">
+              <span>阿</span>
             </div>
             <div class="company-details">
-              <h3>Qianxiang Investment (乾象投资)</h3>
-              <p class="role">Investment Analyst</p>
-              <p class="duration">2022 - 2023</p>
+              <h3>Alibaba</h3>
+              <p class="role">Software Engineer Intern</p>
+              <p class="duration">Summer 2022</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="company-info">
+            <div class="company-logo metabit">
+              <span>M</span>
+            </div>
+            <div class="company-details">
+              <h3>Metabit Trading</h3>
+              <p class="role">Software Engineer Intern</p>
+              <p class="duration">2021 - 2022</p>
             </div>
           </div>
         </div>
@@ -107,15 +120,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <div class="terminal-section">
       <h2>## Education</h2>
-      <div class="education-item">
-        <div class="university-info">
-          <div class="university-logo berkeley">
-            <span>UC</span>
+      <div class="education-list">
+        <div class="education-item">
+          <div class="university-info">
+            <div class="university-logo berkeley">
+              <span>UC</span>
+            </div>
+            <div class="university-details">
+              <h3>University of California, Berkeley</h3>
+              <p class="degree">Master of Analytics (STEM)</p>
+              <p class="degree">Major in Electrical Engineering & Computer Science (EECS)</p>
+              <p class="duration">Aug 2022 - Mar 2023</p>
+            </div>
           </div>
-          <div class="university-details">
-            <h3>University of California, Berkeley</h3>
-            <p class="degree">Master of Analytics (STEM)</p>
-            <p class="duration">2022 - 2023</p>
+        </div>
+
+        <div class="education-item">
+          <div class="university-info">
+            <div class="university-logo sjtu">
+              <span>交大</span>
+            </div>
+            <div class="university-details">
+              <h3>Shanghai Jiao Tong University</h3>
+              <p class="degree">Bachelor's Degree</p>
+              <p class="duration">Sep 2018 - Jun 2022</p>
+            </div>
           </div>
         </div>
       </div>
@@ -266,10 +295,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-decoration: underline;
   }
   
-  .experience-list, .education-item {
+  .experience-list, .education-list {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  }
+  
+  .education-item {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
   }
   
   .experience-item {
@@ -315,6 +349,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .berkeley {
     background: linear-gradient(45deg, #003262, #3b7ea1);
     border: 2px solid #003262;
+  }
+  
+  .alibaba {
+    background: linear-gradient(45deg, #ff6a00, #ff8533);
+    border: 2px solid #ff6a00;
+  }
+  
+  .metabit {
+    background: linear-gradient(45deg, #2c5aa0, #5a8bc4);
+    border: 2px solid #2c5aa0;
+  }
+  
+  .sjtu {
+    background: linear-gradient(45deg, #c41e3a, #d63653);
+    border: 2px solid #c41e3a;
   }
   
   .company-details h3, .university-details h3 {
