@@ -23,22 +23,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="terminal-section">
       <h2>## Technical Expertise</h2>
       <div class="code-block">
-        <pre><code>{`const skills = {
-  languages: ["C++", "Python", "JavaScript", "TypeScript"],
-  systems: {
-    lowLatency: "Ultra-fast market data processing",
-    networking: "DPDK, kernel-bypass optimization", 
-    storage: "High-performance I/O with io_uring"
-  },
-  web: {
-    frontend: ["React", "Astro", "Modern CSS"],
-    backend: ["Node.js", "RESTful APIs", "WebSockets"],
-    deployment: ["Vercel", "CI/CD workflows"]
+        <pre><code>{`const expertise = {
+  languages: ["Python", "C++", "SQL", "R"],
+  analytics: {
+    dataScience: "Machine Learning and Statistical Modeling",
+    quantitative: "Financial Analysis and Risk Management",
+    tools: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow"]
   },
   finance: {
+    certifications: "CFA Program Level I (2025)",
     trading: "Algorithmic strategy development",
-    data: "Tick-by-tick market analysis",
-    risk: "Portfolio optimization and risk management"
+    analysis: "Portfolio optimization and risk assessment",
+    experience: "Investment and quantitative research"
+  },
+  systems: {
+    databases: "SQL Server, PostgreSQL, MySQL",
+    cloud: "AWS, data processing pipelines",
+    performance: "High-frequency data analysis"
   }
 };`}</code></pre>
       </div>
@@ -61,11 +62,63 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
 
     <div class="terminal-section">
-      <h2>## Philosophy</h2>
-      <blockquote>
-        "In the world of high-frequency trading, every nanosecond counts. But beyond raw speed, 
-        it's the elegance of the solution and the robustness of the system that truly matter."
-      </blockquote>
+      <h2>## Professional Experience</h2>
+      <div class="experience-list">
+        <div class="experience-item">
+          <div class="company-info">
+            <div class="company-logo citadel">
+              <span>C</span>
+            </div>
+            <div class="company-details">
+              <h3>Citadel Securities</h3>
+              <p class="role">Quantitative Researcher</p>
+              <p class="duration">2025 - Present</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="company-info">
+            <div class="company-logo bloomberg">
+              <span>B</span>
+            </div>
+            <div class="company-details">
+              <h3>Bloomberg</h3>
+              <p class="role">Software Engineer</p>
+              <p class="duration">2023 - 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="company-info">
+            <div class="company-logo qianxiang">
+              <span>乾</span>
+            </div>
+            <div class="company-details">
+              <h3>Qianxiang Investment (乾象投资)</h3>
+              <p class="role">Investment Analyst</p>
+              <p class="duration">2022 - 2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="terminal-section">
+      <h2>## Education</h2>
+      <div class="education-item">
+        <div class="university-info">
+          <div class="university-logo berkeley">
+            <span>UC</span>
+          </div>
+          <div class="university-details">
+            <h3>University of California, Berkeley</h3>
+            <p class="degree">Master of Analytics (STEM)</p>
+            <p class="duration">2022 - 2023</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="terminal-section">
@@ -78,9 +131,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="contact-links">
         <p><code>$ find ~/contact -type f</code></p>
         <ul>
-          <li>📧 <strong>Email:</strong> gen.yang@example.com</li>
-          <li>💻 <strong>GitHub:</strong> github.com/genyang</li>
-          <li>🔗 <strong>LinkedIn:</strong> linkedin.com/in/gen-yang</li>
+          <li>📧 <strong>Email:</strong> <a href="mailto:gen_yang@berkeley.edu">gen_yang@berkeley.edu</a></li>
+          <li>💻 <strong>GitHub:</strong> <a href="https://github.com/genyang" target="_blank">github.com/genyang</a></li>
+          <li>🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gen-yang-b85a1a197/" target="_blank">linkedin.com/in/gen-yang-b85a1a197</a></li>
         </ul>
       </div>
     </div>
@@ -202,5 +255,80 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-links li {
     margin: 0.5rem 0;
     padding-left: 2rem;
+  }
+  
+  .contact-links a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  .contact-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .experience-list, .education-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .experience-item {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+  }
+  
+  .company-info, .university-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .company-logo, .university-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    flex-shrink: 0;
+  }
+  
+  .citadel {
+    background: linear-gradient(45deg, #0066cc, #004499);
+    border: 2px solid #0066cc;
+  }
+  
+  .bloomberg {
+    background: linear-gradient(45deg, #f4b942, #e6a532);
+    border: 2px solid #f4b942;
+    color: #000;
+  }
+  
+  .qianxiang {
+    background: linear-gradient(45deg, #8b5a3c, #6d4530);
+    border: 2px solid #8b5a3c;
+  }
+  
+  .berkeley {
+    background: linear-gradient(45deg, #003262, #3b7ea1);
+    border: 2px solid #003262;
+  }
+  
+  .company-details h3, .university-details h3 {
+    margin: 0 0 0.25rem 0;
+    color: var(--accent);
+  }
+  
+  .role, .degree, .duration {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+  }
+  
+  .role, .degree {
+    font-weight: 500;
   }
 </style>
