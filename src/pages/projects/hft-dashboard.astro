@@ -173,11 +173,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   
   .dashboard-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--accent);
+  }
+  
+  .dashboard-header h1 {
+    margin: 0;
   }
   
   .system-status {
